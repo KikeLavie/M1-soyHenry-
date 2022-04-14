@@ -7,8 +7,13 @@ function nFactorial(n) {
   // devolvé el factorial de n (n!)
   // ej:
   // el factorial de 3 es 6 (3 * 2 * 1)
-}
-
+  if(n > -1 && n < 2) {
+    return 1;
+  } else if (n > 0);
+    return n * nFactorial(n-1);
+  } 
+ 
+ 
 function nFibonacci(n) {
   // Secuencia de Fibonacci: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144,…
   // Retorna el enésimo numero de la serie
@@ -16,7 +21,12 @@ function nFibonacci(n) {
   // nFibonacci(1) // 1 // el elemento 1 es 1
   // nFibonacci(6) // 1 // el elemento 6 es 8
 
-}
+  if( n<2 && n >= 0 ) return n; 
+  return nFibonacci(n-1) + nFibonacci(n-2);
+  }
+  
+ nFibonacci(11);
+
 
 // Para esta parte no es necesario utilizar recursión.
 // Implementa la clase Queue que debe contener los siguientes métodos:
@@ -24,9 +34,30 @@ function nFibonacci(n) {
 // dequeue: Remueve un valor de la queue. Obedece a FIFO y respeta el underflow (devuelve undefined cuando la queue tiene size cero, o sea, cuando no tiene ningún elemento).
 // size: Devuelve el número de elementos que contiene la queue.
 
-function Queue() {
-
+class Queue{
+  constructor() {
+  this._queue_ = [];
+  this.tam = 0;
+ }
 }
+Queue.prototype.enqueue = function(element) {
+  this.tam ++;
+  this._queue_.push(element)
+  let item = this._queue_.push(element);
+  return item;
+}
+Queue.prototype.dequeue = function(element) {
+  if(this.tam === 0) return undefined;
+  this.tam --;
+  this._queue_.shift(element);
+  let item = this._queue_.shift(element);
+  return item;
+}
+
+Queue.prototype.size = function(element) {
+ return this.tam;
+}
+
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
